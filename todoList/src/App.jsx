@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
+import GlobalStyle from './components/styled/global.styled';
 
 const theme = {};
 
