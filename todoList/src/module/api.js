@@ -3,6 +3,7 @@ import { createApi } from 'unsplash-js';
 
 /*https://www.pexels.com/api/documentation/?language=javascript */
 export const getPhoto = async weather => {
+  console.log(weather);
   try {
     const client = await createClient(import.meta.env.VITE_PEXELS_ACCESS_KEY);
 
@@ -17,6 +18,24 @@ export const getPhoto = async weather => {
     });
 
     return photos.photos[0].src.original;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getWeather = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
+        import.meta.env.VITE_OPENWEATHER_ACCESS_KEY
+      }`,
+    );
+    if (!response.ok) {
+      throw new Error('서버에 이상이 있습니다. status: ' + response.status);
+    }
+    const weather = await response.json();
+
+    return weather.weather[0].main;
   } catch (e) {
     console.log(e);
   }
