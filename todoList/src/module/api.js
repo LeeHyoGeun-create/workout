@@ -1,0 +1,44 @@
+import { createClient } from 'pexels';
+import { createApi } from 'unsplash-js';
+
+/*https://www.pexels.com/api/documentation/?language=javascript */
+export const getPhoto = async weather => {
+  try {
+    const client = await createClient(import.meta.env.VITE_PEXELS_ACCESS_KEY);
+
+    const query = weather;
+
+    const photos = await client.photos.search({
+      query,
+      page: Math.floor(Math.random() * 1000),
+      per_page: 1,
+      size: 'small',
+      orientation: 'landscape',
+    });
+
+    return photos.photos[0].src.original;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// export const getPhoto = async weather => {
+//   try {
+//     const unsplash = createApi({
+//       apiUrl: '/api/unsplash-proxy',
+//       accessKey: import.meta.env.VITE_UNSPLASH_ACCESS_KEY,
+//     });
+
+//     unsplash.photos.getRandom({ query: weather }).then(result => {
+//       switch (result.type) {
+//         case 'error':
+//           console.log('error occurred: ', result.errors[0]);
+//         case 'success':
+//           const photo = result.response;
+//           return photo;
+//       }
+//     });
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
