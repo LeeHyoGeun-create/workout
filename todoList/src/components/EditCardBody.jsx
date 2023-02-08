@@ -12,6 +12,9 @@ const EditCardBody = ({ id, todoValue, date, setEditMode }) => {
   };
 
   const onEditClick = () => {
+    if (todo === todoValue) {
+      setEditMode(false);
+    }
     pathchData(id, { todo });
     location.reload();
   };
