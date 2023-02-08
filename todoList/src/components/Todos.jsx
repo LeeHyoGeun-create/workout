@@ -1,10 +1,13 @@
 import React from 'react';
 import TodoCard from './TodoCard';
+import StyledTodos from './styled/Todos.styled';
 
-const Todos = () => {
+const Todos = ({ data }) => {
   return (
     <StyledTodos>
-      <TodoCard></TodoCard>
+      {data.map(todoObj => (
+        <TodoCard key={todoObj.id} {...todoObj} />
+      ))}
     </StyledTodos>
   );
 };

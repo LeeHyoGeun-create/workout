@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Main setData={setData} weather={weather} />}
+            element={<Main data={data} setData={setData} weather={weather} />}
           />
         </Routes>
       </BrowserRouter>
