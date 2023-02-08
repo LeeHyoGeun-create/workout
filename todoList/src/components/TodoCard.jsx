@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './styled/TodoCard.styled';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
+//https://codepen.io/eyupucmaz/pen/oNbeXOb
 const TodoCard = ({ todo, url, date }) => {
   return (
     <Styled.StyledTodoCard>
