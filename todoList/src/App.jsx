@@ -5,11 +5,12 @@ import GlobalStyle from './components/styled/global.styled';
 import initialData from './assets/data.js';
 import useWeather from './hooks/useWeather';
 import { useState } from 'react';
+import useData from './hooks/useData';
 
 const theme = {};
 
 function App() {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useData();
   const weather = useWeather();
 
   return (

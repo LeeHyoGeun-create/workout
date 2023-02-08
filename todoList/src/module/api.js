@@ -19,7 +19,7 @@ export const getPhoto = async weather => {
 
     return photos.photos[0].src.original;
   } catch (e) {
-    console.log(e);
+    throw new Error(e);
   }
 };
 
@@ -37,7 +37,20 @@ export const getWeather = async (lat, lon) => {
 
     return weather.weather[0].main;
   } catch (e) {
-    console.log(e);
+    throw new Error(e);
+  }
+};
+
+export const getData = async () => {
+  try {
+    const responce = await fetch('http://localhost:3001/todos');
+    if (!responce.ok) {
+      throw new Error('서버에 이상이 있습니다. status: ' + response.status);
+    }
+    const todos = await responce.json();
+    return todos;
+  } catch (e) {
+    throw new Error(e);
   }
 };
 
