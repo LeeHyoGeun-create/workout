@@ -14,6 +14,7 @@ const EditCardBody = ({ id, todoValue, date, setEditMode, setChange }) => {
   const onEditClick = async () => {
     if (todo === todoValue) {
       setEditMode(false);
+      return;
     }
     await pathchData(id, { todo });
     setChange(prev => !prev);

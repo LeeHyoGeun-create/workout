@@ -12,7 +12,6 @@ const ViewCardBody = ({
   done,
   setChange,
 }) => {
-  console.log(id, done);
   const onDeleteClick = async id => {
     await deleteData(id);
     setChange(prev => !prev);
