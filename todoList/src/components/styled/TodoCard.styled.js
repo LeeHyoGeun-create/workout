@@ -5,6 +5,10 @@ export const StyledFlex = styled.div`
   display: flex;
   justify-content: space-between;
 
+  h2 {
+    width: 100%;
+  }
+
   button {
     border: none;
     background-color: rgba(0, 0, 0, 0.01);

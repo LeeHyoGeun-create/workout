@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledInputWrrap } from './styled/Input.styled';
-import { getPhoto } from '../module/api';
+import { getPhoto, postData } from '../module/api';
 
 const Input = ({ weather, setData }) => {
   const [todo, setToDo] = useState('');
@@ -13,13 +13,21 @@ const Input = ({ weather, setData }) => {
     const today = new Date();
     const url = await getPhoto(weather);
     const obj = { todo, url, date: today.toLocaleDateString('kr') };
-    setData(prev => [...prev, obj]);
+    postData(obj);
+    setToDo('');
+    location.reload();
   };
 
   return (
     <StyledInputWrrap>
       <form>
-        <input type="text" name="todo" value={todo} onChange={onInputChange} />
+        <input
+          type="text"
+          name="todo"
+          maxLength={30}
+          value={todo}
+          onChange={onInputChange}
+        />
       </form>
       <button onClick={onClickButton}>추가</button>
     </StyledInputWrrap>

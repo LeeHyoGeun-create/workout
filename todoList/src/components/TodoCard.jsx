@@ -1,9 +1,15 @@
 import React from 'react';
 import * as Styled from './styled/TodoCard.styled';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
+import { deleteData } from '../module/api';
 
 //https://codepen.io/eyupucmaz/pen/oNbeXOb
-const TodoCard = ({ todo, url, date }) => {
+const TodoCard = ({ id, todo, url, date }) => {
+  const onDeleteClick = id => {
+    deleteData(id);
+    location.reload();
+  };
+
   return (
     <Styled.StyledTodoCard>
       <Styled.StyledCardHeader>
@@ -17,7 +23,7 @@ const TodoCard = ({ todo, url, date }) => {
             <button>
               <AiOutlineEdit />
             </button>
-            <button>
+            <button onClick={() => onDeleteClick(id)}>
               <AiOutlineDelete />
             </button>
           </div>
