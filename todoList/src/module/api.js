@@ -84,6 +84,23 @@ export const deleteData = async id => {
   }
 };
 
+export const pathchData = async (id, data) => {
+  try {
+    const responce = await fetch(`http://localhost:3001/todos/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!responce.ok) {
+      throw new Error('서버에 이상이 있습니다. status: ' + responce.status);
+    }
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
 // export const getPhoto = async weather => {
 //   try {
 //     const unsplash = createApi({

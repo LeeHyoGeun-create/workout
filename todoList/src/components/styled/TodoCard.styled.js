@@ -47,6 +47,13 @@ export const StyledCardBody = styled.div`
   h2 {
     font-size: 18px;
   }
+
+  input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+  }
 `;
 
 export const StyledTodoCard = styled.article`
