@@ -5,7 +5,7 @@ import EditCardBody from './EditCardBody';
 import ViewCardBody from './ViewCardBody';
 
 //https://codepen.io/eyupucmaz/pen/oNbeXOb
-const TodoCard = ({ id, todo, url, date, done }) => {
+const TodoCard = ({ id, todo, url, date, done, setChange }) => {
   const [editMode, setEditMode] = useState(false);
 
   return (
@@ -19,13 +19,16 @@ const TodoCard = ({ id, todo, url, date, done }) => {
           todoValue={todo}
           date={date}
           setEditMode={setEditMode}
+          setChange={setChange}
         />
       ) : (
         <ViewCardBody
           id={id}
           todoValue={todo}
+          done={done}
           date={date}
           setEditMode={setEditMode}
+          setChange={setChange}
         />
       )}
     </Styled.StyledTodoCard>

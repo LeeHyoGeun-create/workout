@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getData } from '../module/api';
 
-const useData = () => {
+const useData = change => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const useData = () => {
     };
 
     asyncFunc();
-  }, []);
+  }, [change]);
 
   return [todos, setTodos];
 };

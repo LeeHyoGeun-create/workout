@@ -4,19 +4,28 @@ import { deleteData } from '../module/api';
 import { AiOutlineEdit, AiOutlineDelete, AiOutlineCheck } from 'react-icons/ai';
 import { pathchData } from '../module/api';
 
-const ViewCardBody = ({ id, todoValue, date, setEditMode, done }) => {
-  const onDeleteClick = id => {
-    deleteData(id);
-    location.reload();
+const ViewCardBody = ({
+  id,
+  todoValue,
+  date,
+  setEditMode,
+  done,
+  setChange,
+}) => {
+  console.log(id, done);
+  const onDeleteClick = async id => {
+    await deleteData(id);
+    setChange(prev => !prev);
   };
 
   const onEditClick = () => {
     setEditMode(true);
   };
 
-  const onDoneClick = () => {
-    pathchData(id, { done: !done });
-    location.reload();
+  const onDoneClick = async () => {
+    console.log(done);
+    await pathchData(id, { done: !done });
+    setChange(prev => !prev);
   };
 
   return (

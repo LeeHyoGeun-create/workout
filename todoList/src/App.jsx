@@ -10,7 +10,8 @@ import useData from './hooks/useData';
 const theme = {};
 
 function App() {
-  const [data, setData] = useData();
+  const [change, setChange] = useState(false);
+  const [data, setData] = useData(change);
   const weather = useWeather();
 
   return (
@@ -20,7 +21,14 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Main data={data} setData={setData} weather={weather} />}
+            element={
+              <Main
+                data={data}
+                setData={setData}
+                weather={weather}
+                setChange={setChange}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>

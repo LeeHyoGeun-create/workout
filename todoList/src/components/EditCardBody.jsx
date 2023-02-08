@@ -4,25 +4,24 @@ import { AiOutlineCheckSquare } from 'react-icons/ai';
 import { MdOutlineCancelPresentation } from 'react-icons/md';
 import { pathchData } from '../module/api';
 
-const EditCardBody = ({ id, todoValue, date, setEditMode }) => {
+const EditCardBody = ({ id, todoValue, date, setEditMode, setChange }) => {
   const [todo, setTodo] = useState(todoValue);
 
   const onTodoChange = e => {
     setTodo(e.target.value);
   };
 
-  const onEditClick = () => {
+  const onEditClick = async () => {
     if (todo === todoValue) {
       setEditMode(false);
     }
-    pathchData(id, { todo });
-    location.reload();
+    await pathchData(id, { todo });
+    setChange(prev => !prev);
   };
-
-  const onKeyPress = e => {
+  const onKeyPress = async e => {
     if (e.key === 'Enter') {
-      pathchData(id, { todo });
-      location.reload();
+      await pathchData(id, { todo });
+      setChange(prev => !prev);
     }
   };
 
