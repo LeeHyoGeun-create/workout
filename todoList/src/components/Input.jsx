@@ -4,7 +4,6 @@ import { getPhoto } from '../module/api';
 
 const Input = ({ weather, setData }) => {
   const [todo, setToDo] = useState('');
-  console.log(weather);
 
   const onInputChange = e => {
     setToDo(e.target.value);

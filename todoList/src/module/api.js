@@ -1,5 +1,5 @@
 import { createClient } from 'pexels';
-import { createApi } from 'unsplash-js';
+// import { createApi } from 'unsplash-js';
 
 /*https://www.pexels.com/api/documentation/?language=javascript */
 export const getPhoto = async weather => {
