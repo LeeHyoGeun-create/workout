@@ -12,7 +12,12 @@ const Input = ({ weather, setData }) => {
   const onClickButton = async () => {
     const today = new Date();
     const url = await getPhoto(weather);
-    const obj = { todo, url, date: today.toLocaleDateString('kr') };
+    const obj = {
+      todo,
+      url,
+      date: today.toLocaleDateString('kr'),
+      done: false,
+    };
     postData(obj);
     setToDo('');
     location.reload();

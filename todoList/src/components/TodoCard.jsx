@@ -5,11 +5,11 @@ import EditCardBody from './EditCardBody';
 import ViewCardBody from './ViewCardBody';
 
 //https://codepen.io/eyupucmaz/pen/oNbeXOb
-const TodoCard = ({ id, todo, url, date }) => {
+const TodoCard = ({ id, todo, url, date, done }) => {
   const [editMode, setEditMode] = useState(false);
 
   return (
-    <Styled.StyledTodoCard>
+    <Styled.StyledTodoCard done={done}>
       <Styled.StyledCardHeader>
         <img src={url} />
       </Styled.StyledCardHeader>

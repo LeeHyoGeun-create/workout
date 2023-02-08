@@ -16,6 +16,13 @@ const EditCardBody = ({ id, todoValue, date, setEditMode }) => {
     location.reload();
   };
 
+  const onKeyPress = e => {
+    if (e.key === 'Enter') {
+      pathchData(id, { todo });
+      location.reload();
+    }
+  };
+
   const onCancelClick = () => {
     setEditMode(false);
   };
@@ -27,6 +34,7 @@ const EditCardBody = ({ id, todoValue, date, setEditMode }) => {
         value={todo}
         placeholder="Input your Todo"
         onChange={onTodoChange}
+        onKeyPress={onKeyPress}
       />
       <Styled.StyledFlex>
         <p>{date}</p>

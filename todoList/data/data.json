@@ -1,9 +1,10 @@
 {
   "todos": [
     {
-      "todo": "수정 끝",
-      "url": "https://images.pexels.com/photos/6136314/pexels-photo-6136314.jpeg",
+      "todo": "ㄴㅇㄹㄴㅇㄹ",
+      "url": "https://images.pexels.com/photos/3605367/pexels-photo-3605367.jpeg",
       "date": "2023. 2. 8.",
+      "done": true,
       "id": 1
     }
   ]

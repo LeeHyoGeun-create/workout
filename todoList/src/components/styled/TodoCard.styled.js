@@ -58,7 +58,7 @@ export const StyledCardBody = styled.div`
 
 export const StyledTodoCard = styled.article`
   margin: 10px;
-  background-color: #fff;
+  background-color: ${props => (props.done ? '#E5FDD1' : '#fff')};
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
