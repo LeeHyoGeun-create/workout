@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 
+export const StyledFlex = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.01);
+    border-radius: 5px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-right: 7px;
+
+    svg {
+      width: 20px;
+      height: 16px;
+    }
+  }
+
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`;
+
 export const StyledCardHeader = styled.div`
   img {
     width: 100%;

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Styled from './styled/TodoCard.styled';
+import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
 const TodoCard = ({ todo, url, date }) => {
   return (
@@ -9,7 +10,17 @@ const TodoCard = ({ todo, url, date }) => {
       </Styled.StyledCardHeader>
       <Styled.StyledCardBody>
         <h2>{todo}</h2>
-        <p>{date}</p>
+        <Styled.StyledFlex>
+          <p>{date}</p>
+          <div>
+            <button>
+              <AiOutlineEdit />
+            </button>
+            <button>
+              <AiOutlineDelete />
+            </button>
+          </div>
+        </Styled.StyledFlex>
       </Styled.StyledCardBody>
     </Styled.StyledTodoCard>
   );
